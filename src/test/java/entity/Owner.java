@@ -2,79 +2,38 @@
 package entity;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 
 @SuppressWarnings("unused")
 public class Owner {
 
     @SerializedName("accept_rate")
-    private Long mAcceptRate;
+    @Setter
+    @Getter
+    private Long AcceptRate;
     @SerializedName("display_name")
-    private String mDisplayName;
+    @Setter
+    @Getter
+    private String DisplayName;
     @SerializedName("link")
-    private String mLink;
+    @Setter
+    @Getter
+    private String Link;
     @SerializedName("profile_image")
-    private String mProfileImage;
+    @Setter
+    @Getter
+    private String ProfileImage;
     @SerializedName("reputation")
-    private Long mReputation;
+    @Setter
+    @Getter
+    private Long Reputation;
     @SerializedName("user_id")
-    private Long mUserId;
+    @Setter
+    @Getter
+    private Long UserId;
     @SerializedName("user_type")
-    private String mUserType;
-
-    public Long getAcceptRate() {
-        return mAcceptRate;
-    }
-
-    public void setAcceptRate(Long acceptRate) {
-        mAcceptRate = acceptRate;
-    }
-
-    public String getDisplayName() {
-        return mDisplayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        mDisplayName = displayName;
-    }
-
-    public String getLink() {
-        return mLink;
-    }
-
-    public void setLink(String link) {
-        mLink = link;
-    }
-
-    public String getProfileImage() {
-        return mProfileImage;
-    }
-
-    public void setProfileImage(String profileImage) {
-        mProfileImage = profileImage;
-    }
-
-    public Long getReputation() {
-        return mReputation;
-    }
-
-    public void setReputation(Long reputation) {
-        mReputation = reputation;
-    }
-
-    public Long getUserId() {
-        return mUserId;
-    }
-
-    public void setUserId(Long userId) {
-        mUserId = userId;
-    }
-
-    public String getUserType() {
-        return mUserType;
-    }
-
-    public void setUserType(String userType) {
-        mUserType = userType;
-    }
-
+    @Setter
+    @Getter
+    private String UserType;
 }

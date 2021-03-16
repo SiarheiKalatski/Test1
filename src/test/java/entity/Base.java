@@ -3,58 +3,30 @@ package entity;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
+import lombok.Getter;
+import lombok.Setter;
 
 public class Base {
 
     @SerializedName("backoff")
-    private Long mBackoff;
+    @Setter
+    @Getter
+    private Long Backoff;
     @SerializedName("has_more")
-    private Boolean mHasMore;
+    @Setter
+    @Getter
+    private Boolean HasMore;
     @SerializedName("items")
-    private List<Item> mItems;
+    @Setter
+    @Getter
+    private List<Item> Items;
     @SerializedName("quota_max")
-    private Long mQuotaMax;
+    @Setter
+    @Getter
+    private Long QuotaMax;
     @SerializedName("quota_remaining")
-    private Long mQuotaRemaining;
-
-    public Long getBackoff() {
-        return mBackoff;
-    }
-
-    public void setBackoff(Long backoff) {
-        mBackoff = backoff;
-    }
-
-    public Boolean getHasMore() {
-        return mHasMore;
-    }
-
-    public void setHasMore(Boolean hasMore) {
-        mHasMore = hasMore;
-    }
-
-    public List<Item> getItems() {
-        return mItems;
-    }
-
-    public void setItems(List<Item> items) {
-        mItems = items;
-    }
-
-    public Long getQuotaMax() {
-        return mQuotaMax;
-    }
-
-    public void setQuotaMax(Long quotaMax) {
-        mQuotaMax = quotaMax;
-    }
-
-    public Long getQuotaRemaining() {
-        return mQuotaRemaining;
-    }
-
-    public void setQuotaRemaining(Long quotaRemaining) {
-        mQuotaRemaining = quotaRemaining;
-    }
+    @Getter
+    @Setter
+    private Long QuotaRemaining;
 
 }
