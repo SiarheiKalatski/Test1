@@ -1,15 +1,13 @@
 import entity.Item;
 import entity.Owner;
-import logic.ResponseGeneration;
+import logic.AnswersRequestSender;
 import org.apache.commons.text.StringEscapeUtils;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-
 import static io.restassured.RestAssured.*;
 
 public class StackOverflowTest {
@@ -32,12 +30,12 @@ public class StackOverflowTest {
     @Test
     public void answersApiTest() throws UnsupportedEncodingException {
 
-        ResponseGeneration responseGeneration = new ResponseGeneration();
-        responseGeneration.queryParameters("stackoverflow", "1",
+        AnswersRequestSender answersRequestSender = new AnswersRequestSender();
+        answersRequestSender.get("stackoverflow", "1",
                 pageSize, "desc", "activity", "default")
                 .then().assertThat().statusCode(statusCode);
 
-        List<Item> items = responseGeneration.getItemsList();
+        List<Item> items = answersRequestSender.getItemsList();
         softAssert.assertTrue(items.size() <= pageSize);
         checkOwnerParameters(items);
 
