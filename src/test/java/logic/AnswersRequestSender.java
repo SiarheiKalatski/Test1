@@ -6,12 +6,13 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ResponseGeneration {
+public class AnswersRequestSender {
     private Response response;
 
-    public Response queryParameters(String site, String page, int pageSize, String order, String sort, String filter) {
+    public Response get(String site, String page, int pageSize, String order, String sort, String filter) {
         response = given().queryParam("site", site)
                 .queryParam("page", page).queryParam("pagesize", pageSize)
                 .queryParam("order", order)
@@ -22,6 +23,9 @@ public class ResponseGeneration {
     }
 
     public List<Item> getItemsList() {
+        if(response == null){
+            return new ArrayList<>();
+        }
         return response.then().extract().as(Base.class).getItems();
     }
 

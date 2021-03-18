@@ -1,11 +1,11 @@
 import entity.Item;
 import entity.Owner;
-import logic.ResponseGeneration;
+import logic.AnswersRequestSender;
+import lombok.SneakyThrows;
 import org.apache.commons.text.StringEscapeUtils;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -30,27 +30,27 @@ public class StackOverflowTest {
     }
 
     @Test
-    public void answersApiTest() throws UnsupportedEncodingException {
+    public void answersApiTest() {
 
-        ResponseGeneration responseGeneration = new ResponseGeneration();
-        responseGeneration.queryParameters("stackoverflow", "1",
+        AnswersRequestSender answersRequestSender = new AnswersRequestSender();
+        answersRequestSender.get("stackoverflow", "1",
                 pageSize, "desc", "activity", "default")
                 .then().assertThat().statusCode(statusCode);
 
-        List<Item> items = responseGeneration.getItemsList();
+        List<Item> items = answersRequestSender.getItemsList();
         softAssert.assertTrue(items.size() <= pageSize);
         checkOwnerParameters(items);
 
         softAssert.assertAll();
     }
-
-    private String stringConverter(String string) throws UnsupportedEncodingException {
+    @SneakyThrows
+    private String stringConverter(String string)  {
         String normalString = StringEscapeUtils.unescapeHtml4(string).replaceAll("\\s*-\\s*|\\s+|_", "-")
                 .replaceAll("-\\.-|-\\.|\\.-", "-").replaceAll("\\.", "-");
         return URLEncoder.encode(normalString, StandardCharsets.UTF_8.displayName()).toLowerCase();
     }
 
-    private void checkOwnerParameters(List<Item> items) throws UnsupportedEncodingException {
+    private void checkOwnerParameters(List<Item> items) {
         for (entity.Item item : items) {
             Owner owner = item.getOwner();
             softAssert.assertNotNull(owner);
