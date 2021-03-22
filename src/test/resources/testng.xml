@@ -2,7 +2,8 @@
 <suite name="Stack Overflow" verbose="1" >
     <test name="Get answers" >
         <classes>
-            <class name="StackOverflowTest"/>
+            <class name="tests.GetAnswersTest"/>
+            <class name="tests.GetBadgesTest"></class>
         </classes>
     </test>
 </suite>

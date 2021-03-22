@@ -1,22 +1,22 @@
 
-package entity;
+package entity.badges;
 
 import java.util.List;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
 @Data
-public class Base {
+public class BaseBadges {
 
-    @SerializedName("backoff")
-    private Long Backoff;
     @SerializedName("has_more")
-    private Boolean HasMore;
+    private Boolean hasMore;
+    @Expose
     @SerializedName("items")
-    private List<Item> Items;
+    private List<Badge> badges;
     @SerializedName("quota_max")
-    private Long QuotaMax;
+    private Long quotaMax;
     @SerializedName("quota_remaining")
-    private Long QuotaRemaining;
+    private Long quotaRemaining;
 
 }

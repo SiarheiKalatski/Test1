@@ -1,5 +1,5 @@
 
-package entity;
+package entity.answers;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
