@@ -1,8 +1,6 @@
 package tests;
 
 import entity.badges.Badge;
-import entity.badges.BaseBadges;
-import io.restassured.response.Response;
 import logic.BadgesRequestSender;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -89,7 +87,7 @@ public class GetBadgesTest {
                 then().assertThat().statusCode(statusCode);
 
         List<Badge> badgeList = badgesRequestSender.getBadgeList();
-        softAssert.assertTrue(badgeList.size() <= pageSize, "Wrong size: " + badgeList.size());
+        softAssert.assertTrue(badgeList.size() == pageSize, "Wrong size: " + badgeList.size());
 
         badgeList.stream().forEach(this::validateBadgeLink);
 
@@ -102,11 +100,10 @@ public class GetBadgesTest {
     private void validateBadgeLink(Badge badge) {
 
         softAssert.assertTrue(badge.getLink().contains(GetAnswersTest.stringConverter(badge.getName())) &&
-                badge.getLink().contains(badge.getBadgeId().toString()) &&
-                badge.getLink().contains("badges"), "Link not as expected" + badge);
+                badge.getLink().contains(badge.getBadgeId().toString()) , "Link not as expected" + badge);
     }
 
     private void validateBadgeRank(Badge badge, String rank) {
-        softAssert.assertEquals(badge.getRank(), rank, "Rank not us expected: " + rank + "\n" + badge);
+        softAssert.assertEquals(badge.getRank(), rank, "Rank not as expected: " + rank + "\n" + badge);
     }
 }
