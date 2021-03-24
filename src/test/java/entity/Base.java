@@ -1,32 +1,17 @@
-
 package entity;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 public class Base {
-    @Getter
-    @Setter
+
     @SerializedName("backoff")
-    private Long Backoff;
-    @Getter
-    @Setter
+    private Long backoff;
     @SerializedName("has_more")
-    private Boolean HasMore;
-    @Getter
-    @Setter
-    @SerializedName("items")
-    private List<Item> Items;
-    @Getter
-    @Setter
+    private Boolean hasMore;
     @SerializedName("quota_max")
-    private Long QuotaMax;
-    @Getter
-    @Setter
+    private Long quotaMax;
     @SerializedName("quota_remaining")
-    private Long QuotaRemaining;
-
-
+    private Long quotaRemaining;
 }
