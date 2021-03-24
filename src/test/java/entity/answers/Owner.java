@@ -9,17 +9,17 @@ import lombok.Data;
 public class Owner {
 
     @SerializedName("accept_rate")
-    private Long AcceptRate;
+    private Long acceptRate;
     @SerializedName("display_name")
-    private String DisplayName;
+    private String displayName;
     @SerializedName("link")
-    private String Link;
+    private String link;
     @SerializedName("profile_image")
-    private String ProfileImage;
+    private String profileImage;
     @SerializedName("reputation")
-    private Long Reputation;
+    private Long reputation;
     @SerializedName("user_id")
-    private Long UserId;
+    private Long userId;
     @SerializedName("user_type")
-    private String UserType;
+    private String userType;
 }

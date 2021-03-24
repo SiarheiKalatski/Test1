@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Stack Overflow" verbose="1" >
-    <test name="Get answers" >
+    <test name="Get answers and badges" >
         <classes>
             <class name="tests.GetAnswersTest"/>
             <class name="tests.GetBadgesTest"></class>

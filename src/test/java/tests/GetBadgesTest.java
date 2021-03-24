@@ -7,9 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 import static io.restassured.RestAssured.*;
 
@@ -98,7 +97,6 @@ public class GetBadgesTest {
     }
 
     private void validateBadgeLink(Badge badge) {
-
         softAssert.assertTrue(badge.getLink().contains(GetAnswersTest.stringConverter(badge.getName())) &&
                 badge.getLink().contains(badge.getBadgeId().toString()) , "Link not as expected" + badge);
     }

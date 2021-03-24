@@ -5,12 +5,13 @@ import entity.badges.BaseBadges;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
-
-public class BadgesRequestSender extends BaseRequestSender <BadgesRequestSender>{
+public class BadgesRequestSender extends BaseRequestSender<BadgesRequestSender> {
 
     public Response get(String order, String sort, String site, String pageSize, String page) {
         response = requestSpecification.filter(new ResponseLoggingFilter()).filter(new RequestLoggingFilter())
@@ -23,7 +24,7 @@ public class BadgesRequestSender extends BaseRequestSender <BadgesRequestSender>
     }
 
     public List<Badge> getBadgeList() {
-        return response == null ? new ArrayList<>() : response.then().extract().as(BaseBadges.class).getBadges();
+        return Optional.ofNullable(response).map(i -> i.then().extract().as(BaseBadges.class).getBadges()).orElse(new ArrayList<>());
     }
 
 }

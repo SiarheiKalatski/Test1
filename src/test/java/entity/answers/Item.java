@@ -9,19 +9,19 @@ import lombok.Data;
 public class Item {
 
     @SerializedName("answer_id")
-    private Long AnswerId;
+    private Long answerId;
     @SerializedName("content_license")
-    private String ContentLicense;
+    private String contentLicense;
     @SerializedName("creation_date")
-    private Long CreationDate;
+    private Long creationDate;
     @SerializedName("is_accepted")
-    private Boolean IsAccepted;
+    private Boolean isAccepted;
     @SerializedName("last_activity_date")
-    private Long LastActivityDate;
+    private Long lastActivityDate;
     @SerializedName("owner")
-    private Owner Owner;
+    private Owner owner;
     @SerializedName("question_id")
-    private Long QuestionId;
+    private Long questionId;
     @SerializedName("score")
-    private Long Score;
+    private Long score;
 }
